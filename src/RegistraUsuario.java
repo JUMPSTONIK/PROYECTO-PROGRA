@@ -16,7 +16,8 @@ public class RegistraUsuario extends javax.swing.JFrame {
      */
     public RegistraUsuario(boolean x) {
         initComponents();
-        txfNombre.setToolTipText("asdasfagag");
+        txfNombre.setToolTipText("su nombre de usuario debe tener minimo 6 caracteres");
+        
         cambiolbl(x);
     }
 
