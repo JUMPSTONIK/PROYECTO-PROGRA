@@ -1,0 +1,2 @@
+trty.RegistroAdministrador
+trty.RegistroAdministrador$1
