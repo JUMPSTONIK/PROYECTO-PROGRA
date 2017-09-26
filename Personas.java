@@ -2,6 +2,7 @@
 //15470
 //Juan Rodolfo Alonzo Molina
 //21/09/2017
+import java.util.Random;
 
 public abstract class Personas{
 	
@@ -9,18 +10,19 @@ public abstract class Personas{
 	protected String dpi;
 	protected String email;
 	private String contrasena;
-	protected int min;
-	protected int max;
+	protected int id = (int)(Math.random() * 9999) + 1000;
+	//aqui estoy viendo cual random me sale mejor
+	//private static Random r = new Random();
+	//protected int min = 1000;
+	//protected int max = 9999;
+	//protected int id = r.nextInt(max-min+1)+min;
 
-	public Personas(String nombre, String dpi, String email, String contrasena){
+	public Personas(String nombre, String dpi, String email, String contrasena, int id){
 		this.nombre = nombre;
 		this.dpi = dpi;
 		this.email = email;
 		this.contrasena = contrasena;
-		Random r = new Random();
-		min = 1000;
-		max = 9999;
-		id = r.nextInt(max-min) + min;
+		this.id = id;
 	}
 
 	public String getNombre(){

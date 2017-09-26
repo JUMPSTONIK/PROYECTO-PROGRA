@@ -14,13 +14,13 @@ public class Comunidad{
 		usuarios = new ArrayList<Personas>();
 	}
 
-	public void agregarpersonaistrador(String nombre, String dpi, String email, String contrasena, String puesto){
-		RegistroAdmin admin = new RegistroAdmin(nombre, dpi, email, contrasena, puesto);
+	public void agregarAdministrador(String nombre, String dpi, String email, String contrasena, String puesto, int id){
+		RegistroAdmin admin = new RegistroAdmin(nombre, dpi, email, contrasena, puesto, id);
 		administradores.add(admin);
 	}
 
-	public void agregarUsuario(String nombre, String dpi, String email, String contrasena, String sector){
-		RegistroUsuario vendedor = new RegistroUsuario(nombre, dpi, email, contrasena, sector);
+	public void agregarUsuario(String nombre, String dpi, String email, String contrasena, String trabajo, int id, String horario){
+		RegistroUsuario vendedor = new RegistroUsuario(nombre, dpi, email, contrasena, trabajo, id, horario);
 		usuarios.add(vendedor);
 	}
 }

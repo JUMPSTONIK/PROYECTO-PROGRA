@@ -6,8 +6,8 @@
 public class RegistroAdmin extends Personas{
 	protected String puesto;
 
-	public RegistroAdmin(String nombre, String dpi, String email, String contrasena, String puesto){
-		super(nombre, dpi, email, contrasena);
+	public RegistroAdmin(String nombre, String dpi, String email, String contrasena, String puesto, int id){
+		super(nombre, dpi, email, contrasena, id);
 	}
 
 	public void setPuesto(String puesto){

@@ -4,17 +4,26 @@
 //21/09/2017
 
 public class RegistroUsuario extends Personas{
-	protected String sector;
+	protected String trabajo;
+	protected String horario;
 
-	public RegistroUsuario(String nombre, String dpi, String email, String contrasena, String sector){
-		super(nombre, dpi, email, contrasena);
+	public RegistroUsuario(String nombre, String dpi, String email, String contrasena, String trabajo, int id, String horario){
+		super(nombre, dpi, email, contrasena, id);
 	}
 
-	public void setSector(String sector){
-		this.sector = sector;
+	public void setTrabajo(String trabajo){
+		this.trabajo = trabajo;
 	}
 
-	public String getSector(){
-		return sector;
+	public String getTrabajo(){
+		return trabajo;
+	}
+
+	public void setHorario(String horario){
+		this.horario = horario;
+	}
+
+	public String getHorario(){
+		return horario;
 	}
 }
