@@ -24,21 +24,18 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="btnLogIn" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="btnLogIn" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="lbContraseña" min="-2" max="-2" attributes="0"/>
                           <Component id="lbIDUser" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="tfContraseña" max="32767" attributes="0"/>
-                          <Component id="tfIDUser" min="-2" pref="143" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="tfIDUser" pref="143" max="32767" attributes="0"/>
+                          <Component id="jpContrasena" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -67,7 +64,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lbContraseña" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
-                          <Component id="tfContraseña" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                          <Component id="jpContrasena" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -91,6 +88,7 @@
         <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="btnLogIn"/>
       </AccessibilityProperties>
       <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnLogInMouseClicked"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLogInActionPerformed"/>
       </Events>
     </Component>
@@ -109,14 +107,6 @@
       <AccessibilityProperties>
         <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="tfIDUser"/>
       </AccessibilityProperties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="tfContrase&#xf1;a">
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="tfContrase&#xf1;a"/>
-      </AccessibilityProperties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfContrase&#xf1;aActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lbIDUser">
       <Properties>
@@ -144,6 +134,11 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRAActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="jpContrasena">
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="jpContrasena"/>
+      </AccessibilityProperties>
     </Component>
   </SubComponents>
 </Form>

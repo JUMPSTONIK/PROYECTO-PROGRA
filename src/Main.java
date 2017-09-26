@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -29,14 +32,19 @@ public class Main extends javax.swing.JFrame {
         btnLogIn = new javax.swing.JButton();
         btnRU = new javax.swing.JButton();
         tfIDUser = new javax.swing.JTextField();
-        tfContraseña = new javax.swing.JTextField();
         lbIDUser = new javax.swing.JLabel();
         lbContraseña = new javax.swing.JLabel();
         btnRA = new javax.swing.JButton();
+        jpContrasena = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnLogIn.setText("Log In");
+        btnLogIn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLogInMouseClicked(evt);
+            }
+        });
         btnLogIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogInActionPerformed(evt);
@@ -47,12 +55,6 @@ public class Main extends javax.swing.JFrame {
         btnRU.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRUActionPerformed(evt);
-            }
-        });
-
-        tfContraseña.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfContraseñaActionPerformed(evt);
             }
         });
 
@@ -72,19 +74,17 @@ public class Main extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnLogIn))
-                    .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnLogIn, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lbContraseña)
                             .addComponent(lbIDUser))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfContraseña)
-                            .addComponent(tfIDUser, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tfIDUser, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                            .addComponent(jpContrasena))))
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnRA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -105,7 +105,7 @@ public class Main extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jpContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addComponent(btnRA)))
@@ -117,17 +117,13 @@ public class Main extends javax.swing.JFrame {
         btnLogIn.getAccessibleContext().setAccessibleName("btnLogIn");
         btnRU.getAccessibleContext().setAccessibleName("btnRU");
         tfIDUser.getAccessibleContext().setAccessibleName("tfIDUser");
-        tfContraseña.getAccessibleContext().setAccessibleName("tfContraseña");
         lbIDUser.getAccessibleContext().setAccessibleName("lbIDUser");
         lbContraseña.getAccessibleContext().setAccessibleName("lbContraseña");
         btnRA.getAccessibleContext().setAccessibleName("btnRA");
+        jpContrasena.getAccessibleContext().setAccessibleName("jpContrasena");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void tfContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfContraseñaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfContraseñaActionPerformed
 
     private void btnRUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRUActionPerformed
         // TODO add your handling code here:
@@ -145,7 +141,31 @@ public class Main extends javax.swing.JFrame {
 
     private void btnLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogInActionPerformed
         // TODO add your handling code here:
+        char[] contrasena = jpContrasena.getPassword();
+        String contrasenas = new String(contrasena);
+        Comunidad comunidad = new Comunidad();
+        if (tfIDUser.equals("") || comunidad.equals("")) {
+            JOptionPane.showMessageDialog(null, "debe llenar ambas cansillas. la primera con su ID y la segunda con su contraseña");
+        }
+        else{
+               
+            if (comunidad.log_in(comunidad.QueUsuario(contrasenas), tfIDUser.getText(), contrasenas) == true) {
+                Perfil perfil = new Perfil();
+                perfil.setVisible(true);
+                this.setVisible(false);
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "ID o contraseña incorrectos. Ingrese un ID o contraseña valida ya registrada");
+            }
+        }
+        
+        
     }//GEN-LAST:event_btnLogInActionPerformed
+
+    private void btnLogInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogInMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnLogInMouseClicked
 
     /**
      * @param args the command line arguments
@@ -186,9 +206,9 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnLogIn;
     private javax.swing.JButton btnRA;
     private javax.swing.JButton btnRU;
+    private javax.swing.JPasswordField jpContrasena;
     private javax.swing.JLabel lbContraseña;
     private javax.swing.JLabel lbIDUser;
-    private javax.swing.JTextField tfContraseña;
     private javax.swing.JTextField tfIDUser;
     // End of variables declaration//GEN-END:variables
 }

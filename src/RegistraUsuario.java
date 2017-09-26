@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -10,15 +13,16 @@
  * @author JOSUE FLORIAN
  */
 public class RegistraUsuario extends javax.swing.JFrame {
-
+    private boolean typeofuser;
     /**
      * Creates new form RegistraUsuario
      */
     public RegistraUsuario(boolean x) {
         initComponents();
-        txfNombre.setToolTipText("su nombre de usuario debe tener minimo 6 caracteres");
-        
+        ToolTip();
         cambiolbl(x);
+        this.typeofuser = x;
+        System.out.println(this.typeofuser);
     }
 
     private RegistraUsuario() {
@@ -26,14 +30,21 @@ public class RegistraUsuario extends javax.swing.JFrame {
     }
     private void cambiolbl(boolean estado){
         if (estado==false) {
-            lbcomodin.setText("Sector:");
+            lbcomodin.setText("Trabajo");
+            txfcomodin.setToolTipText("debe ingresar a que se dedica o de que trabaja. ejemplo: vendedor, artiista, circense, etc..");
         }
         if (estado==true) {
            lbcomodin.setText("puesto:");
+           txfcomodin.setToolTipText("debe ingresar el puesto que ocupa en la municipalidad ejemplo: policia, secretario, etc. ");
         }
-        lbcodigo.setVisible(estado);
-        txfcodigo.setVisible(estado);
     } 
+    private void ToolTip(){
+        txfNombre.setToolTipText("debe ingresar minimo 1 nombre y apellido");
+        tfDPI.setToolTipText("recuerde ingresar todos los digitos de su DPI juntos y no agregar ningun caracter que no sea numero");
+        jpContrasena.setToolTipText("debe tener minimo 8 caracteres");
+        jprepContrasena.setToolTipText("repita la contraseña exactamente igual como la ha escrito anteriormente");
+        txfcodigo.setToolTipText("ingrese el codigo de acceso asignado por la Municipalidad");
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -49,19 +60,19 @@ public class RegistraUsuario extends javax.swing.JFrame {
         lbDPI = new javax.swing.JLabel();
         lbcomodin = new javax.swing.JLabel();
         tfDPI = new javax.swing.JTextField();
-        tfSector = new javax.swing.JTextField();
+        txfcomodin = new javax.swing.JTextField();
         lblContrasena = new javax.swing.JLabel();
         lblrepContrasena = new javax.swing.JLabel();
-        txfContraseña = new javax.swing.JTextField();
-        txfrepContrasena = new javax.swing.JTextField();
         lbcodigo = new javax.swing.JLabel();
         txfcodigo = new javax.swing.JTextField();
         btnregresar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jpContrasena = new javax.swing.JPasswordField();
+        jprepContrasena = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lbNombre.setText("Nombre:");
+        lbNombre.setText("Nombre y Apellido:");
 
         btnRegistrar.setText("Registrar");
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
@@ -86,6 +97,12 @@ public class RegistraUsuario extends javax.swing.JFrame {
         lbcomodin.setText("0");
         lbcomodin.setToolTipText("");
 
+        txfcomodin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txfcomodinActionPerformed(evt);
+            }
+        });
+
         lblContrasena.setText("contraseña:");
 
         lblrepContrasena.setText("Repita contraseña:");
@@ -99,50 +116,48 @@ public class RegistraUsuario extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        jLabel1.setText("Para saber como llenar las casillas, deje el cursor sobre el cambo a escribir");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnregresar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lbcodigo)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnregresar)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblContrasena)
-                            .addComponent(lbcomodin)
-                            .addComponent(lblrepContrasena))
-                        .addComponent(lbDPI, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(lbNombre, javax.swing.GroupLayout.Alignment.TRAILING)))
-                .addGap(80, 80, 80)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txfNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
-                    .addComponent(tfDPI)
-                    .addComponent(tfSector)
-                    .addComponent(txfContraseña)
-                    .addComponent(txfrepContrasena)
-                    .addComponent(btnRegistrar, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txfcodigo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(25, 25, 25))
+                            .addComponent(lbcodigo)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblContrasena)
+                                    .addComponent(lbcomodin)
+                                    .addComponent(lblrepContrasena))
+                                .addComponent(lbDPI, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(lbNombre, javax.swing.GroupLayout.Alignment.TRAILING)))
+                        .addGap(80, 80, 80)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txfNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+                            .addComponent(tfDPI)
+                            .addComponent(txfcomodin)
+                            .addComponent(btnRegistrar, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txfcodigo)
+                            .addComponent(jpContrasena)
+                            .addComponent(jprepContrasena))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnregresar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnregresar)
+                    .addComponent(jLabel1))
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -154,15 +169,19 @@ public class RegistraUsuario extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbcomodin)
-                    .addComponent(tfSector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txfcomodin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblContrasena)
-                    .addComponent(txfContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(jpContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblrepContrasena)
-                    .addComponent(txfrepContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(lblrepContrasena)
+                        .addGap(6, 6, 6))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jprepContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
@@ -170,14 +189,9 @@ public class RegistraUsuario extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(txfcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnRegistrar)
-                        .addGap(47, 47, 47))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(34, 34, 34))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addComponent(btnRegistrar)
+                .addGap(47, 47, 47))
         );
 
         lbNombre.getAccessibleContext().setAccessibleName("lbNombre");
@@ -186,27 +200,44 @@ public class RegistraUsuario extends javax.swing.JFrame {
         lbDPI.getAccessibleContext().setAccessibleName("lbDPI");
         lbcomodin.getAccessibleContext().setAccessibleName("lbcomodin");
         tfDPI.getAccessibleContext().setAccessibleName("tfDPI");
-        tfSector.getAccessibleContext().setAccessibleName("tfSector");
+        txfcomodin.getAccessibleContext().setAccessibleName("txfcomodin");
         lblContrasena.getAccessibleContext().setAccessibleName("lblContrasena");
         lblrepContrasena.getAccessibleContext().setAccessibleName("lblrepContraseña");
-        txfContraseña.getAccessibleContext().setAccessibleName("txfContraseña");
-        txfrepContrasena.getAccessibleContext().setAccessibleName("txfrepContraseña");
         lbcodigo.getAccessibleContext().setAccessibleName("lbcodigo");
         txfcodigo.getAccessibleContext().setAccessibleName("txfcodigo");
         btnregresar.getAccessibleContext().setAccessibleName("btnregresar");
+        jpContrasena.getAccessibleContext().setAccessibleName("jpContrasena");
+        jprepContrasena.getAccessibleContext().setAccessibleName("jprepContrasena");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnregresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregresarActionPerformed
         // TODO add your handling code here:
-        Main main = new Main();
-        main.setVisible(true);
-        this.setVisible(false);
+        regresar();
     }//GEN-LAST:event_btnregresarActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
+       
+        if (this.typeofuser==true) {
+            Comunidad admin = new Comunidad();
+            char[] arraycontra = jpContrasena.getPassword();
+            String contrasena = new String(arraycontra);
+            char[] arrayrepcontra = jprepContrasena.getPassword();
+            String repcontrasena = new String(arrayrepcontra);
+            JOptionPane.showMessageDialog(null, admin.agregarAdministrador(txfNombre.getText(), tfDPI.getText(), contrasena, repcontrasena, txfcomodin.getText(), txfcodigo.getText()));
+            regresar();
+        }
+        if (this.typeofuser==false) {
+            Comunidad trabajador = new Comunidad();
+            char[] arraycontra = jpContrasena.getPassword();
+            String contrasena = new String(arraycontra);
+            char[] arrayrepcontra = jprepContrasena.getPassword();
+            String repcontrasena = new String(arrayrepcontra);
+            JOptionPane.showMessageDialog(null, trabajador.agregarUsuario(txfNombre.getText(), tfDPI.getText(), contrasena, repcontrasena, txfcomodin.getText(), txfcodigo.getText()));
+            regresar();
+        }
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void txfNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfNombreActionPerformed
@@ -218,11 +249,14 @@ public class RegistraUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txfNombreMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void txfcomodinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfcomodinActionPerformed
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
-
+    }//GEN-LAST:event_txfcomodinActionPerformed
+    public void regresar(){
+        Main main = new Main();
+        main.setVisible(true);
+        this.setVisible(false);
+    }
     /**
      * @param args the command line arguments
      */
@@ -261,7 +295,9 @@ public class RegistraUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnregresar;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPasswordField jpContrasena;
+    private javax.swing.JPasswordField jprepContrasena;
     private javax.swing.JLabel lbDPI;
     private javax.swing.JLabel lbNombre;
     private javax.swing.JLabel lbcodigo;
@@ -269,10 +305,12 @@ public class RegistraUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel lblContrasena;
     private javax.swing.JLabel lblrepContrasena;
     private javax.swing.JTextField tfDPI;
-    private javax.swing.JTextField tfSector;
-    private javax.swing.JTextField txfContraseña;
     private javax.swing.JTextField txfNombre;
     private javax.swing.JTextField txfcodigo;
-    private javax.swing.JTextField txfrepContrasena;
+    private javax.swing.JTextField txfcomodin;
     // End of variables declaration//GEN-END:variables
+
+    private boolean type(char[] password) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
