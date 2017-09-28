@@ -10,18 +10,19 @@ public abstract class Personas{
 	protected String dpi;
 	private String contrasena;
 	protected String id;
-        
+        protected String descripcion;
 	//aqui estoy viendo cual random me sale mejor
 	//private static Random r = new Random();
 	//protected int min = 1000;
 	//protected int max = 9999;
 	//protected int id = r.nextInt(max-min+1)+min;
 
-	public Personas(String nombre, String dpi, String contrasena, String id){
+	public Personas(String nombre, String dpi, String contrasena, String id, String descripcion){
 		this.nombre = nombre;
 		this.dpi = dpi;
 		this.contrasena = contrasena;
 		this.id = id;
+                this.descripcion = descripcion;
 	}
 
 	public String getNombre(){
@@ -38,6 +39,10 @@ public abstract class Personas{
         public String getID(){
                 return id;
         }
+        
+        public String getDescripcion(){
+		return descripcion;
+	}
         
 	public String toString(){
 		String datos;

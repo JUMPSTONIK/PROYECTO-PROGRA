@@ -1,3 +1,6 @@
+
+import java.util.ArrayList;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -16,12 +19,52 @@ public class Perfil extends javax.swing.JFrame {
     /**
      * Creates new form perfil
      */
+    private static String userID;
+    private static String userNombre;
+    private static String userDescripcion;
+    private static boolean usertypeUser;
+    private static int userIndex;
+    
+    public Perfil(ArrayList <Personas> usuario, boolean typeUser, int indexUser) {
+        initComponents();
+        setLocationRelativeTo(null);
+        lblID.setText(usuario.get(indexUser).getID());
+        this.userID = usuario.get(indexUser).getID();
+        lblUsuario.setText(usuario.get(indexUser).getNombre());
+        this.userNombre = usuario.get(indexUser).getNombre();
+        lblDescripcion.setText(usuario.get(indexUser).getDescripcion());
+        this.userDescripcion = usuario.get(indexUser).getDescripcion();
+        this.userIndex = indexUser;
+        if (typeUser == false) {
+            btnAsignaOVerUser.setText("ASIGNAR SECTOR Y HORARIO");
+            btnAsignarOVerMultas.setText("VER MULTAS");
+            btnPagarOEditarUser.setText("PAGAR MULTAS");
+        }
+        if (typeUser == true) {
+            btnAsignaOVerUser.setText("CONTROL DE USUARIOS");
+            btnAsignarOVerMultas.setText("ASIGNAR MULTAS");
+            btnPagarOEditarUser.setText("EDITAR INFORMACION DE USUARIOS");
+        }
+        
+        
+    }
     public Perfil() {
         initComponents();
         setLocationRelativeTo(null);
-        
+        lblID.setText(this.userID);
+        lblUsuario.setText(this.userNombre);
+        lblDescripcion.setText(this.userDescripcion);
+        if (this.usertypeUser == false) {
+            btnAsignaOVerUser.setText("ASIGNAR SECTOR Y HORARIO");
+            btnAsignarOVerMultas.setText("VER MULTAS");
+            btnPagarOEditarUser.setText("PAGAR MULTAS");
+        }
+        if (this.usertypeUser == true) {
+            btnAsignaOVerUser.setText("CONTROL DE USUARIOS");
+            btnAsignarOVerMultas.setText("ASIGNAR MULTAS");
+            btnPagarOEditarUser.setText("EDITAR INFORMACION DE USUARIOS");
+        } 
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,12 +77,12 @@ public class Perfil extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        lblID = new javax.swing.JLabel();
+        lblUsuario = new javax.swing.JLabel();
+        lblDescripcion = new javax.swing.JLabel();
+        btnAsignaOVerUser = new javax.swing.JButton();
+        btnAsignarOVerMultas = new javax.swing.JButton();
+        btnPagarOEditarUser = new javax.swing.JButton();
         btnCerrarSesion = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -53,22 +96,23 @@ public class Perfil extends javax.swing.JFrame {
 
         jLabel3.setText("Descripcion:");
 
-        jLabel4.setText("jLabel4");
+        lblID.setText("0");
 
-        jLabel5.setText("jLabel5");
+        lblUsuario.setText("0");
 
-        jLabel6.setText("jLabel6");
+        lblDescripcion.setText("0");
 
-        jButton1.setText("Asignacion de Sector y Horario");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAsignaOVerUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAsignaOVerUserActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Ver Multas");
-
-        jButton3.setText("Pagar Multas");
+        btnAsignarOVerMultas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAsignarOVerMultasActionPerformed(evt);
+            }
+        });
 
         btnCerrarSesion.setText("Cerrar Sesion");
         btnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
@@ -90,18 +134,18 @@ public class Perfil extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnPagarOEditarUser, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAsignarOVerMultas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAsignaOVerUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel1)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
+                            .addComponent(lblID)
+                            .addComponent(lblUsuario)
+                            .addComponent(lblDescripcion)
                             .addComponent(btnCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -126,28 +170,34 @@ public class Perfil extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel4)
+                        .addComponent(lblID)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel5)
+                        .addComponent(lblUsuario)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel6)
+                        .addComponent(lblDescripcion)
                         .addGap(18, 32, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAsignaOVerUser, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAsignarOVerMultas, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnPagarOEditarUser, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
         );
 
+        lblID.getAccessibleContext().setAccessibleName("lblID");
+        lblUsuario.getAccessibleContext().setAccessibleName("lblUsuario");
+        lblDescripcion.getAccessibleContext().setAccessibleName("lblDescripcion");
+        btnAsignaOVerUser.getAccessibleContext().setAccessibleName("btnAsignaOVerUser");
+        btnAsignarOVerMultas.getAccessibleContext().setAccessibleName("btnAsignarOVerMultas");
+        btnPagarOEditarUser.getAccessibleContext().setAccessibleName("btnPagarOEditarUser");
         btnCerrarSesion.getAccessibleContext().setAccessibleName("btnCerrarSesion");
 
         pack();
@@ -160,12 +210,16 @@ public class Perfil extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnCerrarSesionActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAsignaOVerUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignaOVerUserActionPerformed
         // TODO add your handling code here:
-        Mapa mapa = new Mapa();
+        Mapa mapa = new Mapa(this.userIndex);
         mapa.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnAsignaOVerUserActionPerformed
+
+    private void btnAsignarOVerMultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarOVerMultasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAsignarOVerMultasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -203,17 +257,17 @@ public class Perfil extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAsignaOVerUser;
+    private javax.swing.JButton btnAsignarOVerMultas;
     private javax.swing.JButton btnCerrarSesion;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnPagarOEditarUser;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel lblDescripcion;
+    private javax.swing.JLabel lblID;
+    private javax.swing.JLabel lblUsuario;
     // End of variables declaration//GEN-END:variables
 }

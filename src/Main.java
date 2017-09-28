@@ -16,6 +16,8 @@ public class Main extends javax.swing.JFrame {
     /**
      * Creates new form Main
      */
+    RegistraUsuario usuario = new RegistraUsuario(false); 
+    RegistraUsuario Administrador = new RegistraUsuario(true);
     public Main() {
         initComponents();
     }
@@ -125,40 +127,46 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
     private void btnRUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRUActionPerformed
         // TODO add your handling code here:
-        RegistraUsuario usuario = new RegistraUsuario(false);
+        usuario = new RegistraUsuario(false);
         usuario.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnRUActionPerformed
 
     private void btnRAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRAActionPerformed
         // TODO add your handling code here:
-        RegistraUsuario Administrador = new RegistraUsuario(true);
+        Administrador = new RegistraUsuario(true);
         Administrador.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnRAActionPerformed
 
     private void btnLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogInActionPerformed
         // TODO add your handling code here:
-        char[] contrasena = jpContrasena.getPassword();
-        String contrasenas = new String(contrasena);
+        char[] contrasen = jpContrasena.getPassword();
+        String contra = new String(contrasen);
+        //Administrador = new RegistraUsuario(true);
+
         Comunidad comunidad = new Comunidad();
-        if (tfIDUser.equals("") || comunidad.equals("")) {
+        
+        
+        if (tfIDUser.equals("") || contra.equals("")) {
             JOptionPane.showMessageDialog(null, "debe llenar ambas cansillas. la primera con su ID y la segunda con su contraseña");
         }
-        else{
-               
-            if (comunidad.log_in(comunidad.QueUsuario(contrasenas), tfIDUser.getText(), contrasenas) == true) {
-                Perfil perfil = new Perfil();
+        else{   
+            System.out.println(555);  
+            if (comunidad.log_in(comunidad.QueUsuario(tfIDUser.getText()), tfIDUser.getText(), contra) == true) {
+                Perfil perfil = new Perfil(comunidad.QueUsuario(tfIDUser.getText()),comunidad.getTipoUsuario(), comunidad.getIndexUser());
                 perfil.setVisible(true);
                 this.setVisible(false);
             }
             else{
                 JOptionPane.showMessageDialog(null, "ID o contraseña incorrectos. Ingrese un ID o contraseña valida ya registrada");
             }
-        }
-        
+            
+            
+         }
         
     }//GEN-LAST:event_btnLogInActionPerformed
 

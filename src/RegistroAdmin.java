@@ -4,15 +4,13 @@
 //21/09/2017
 
 public class RegistroAdmin extends Personas{
-	protected String puesto;
+	
 
 	public RegistroAdmin(String nombre, String dpi, String contrasena, String puesto, String id){
-		super(nombre, dpi, contrasena, id);
-                this.puesto= puesto;
+		super(nombre, dpi, contrasena, id, puesto);
+                
 	}
 
-	public String getPuesto(){
-		return puesto;
-	}
+	
         
 }

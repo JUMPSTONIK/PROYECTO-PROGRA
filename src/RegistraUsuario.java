@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /*
@@ -12,19 +13,20 @@ import javax.swing.JOptionPane;
  *
  * @author JOSUE FLORIAN
  */
+    
 public class RegistraUsuario extends javax.swing.JFrame {
     private boolean typeofuser;
     /**
      * Creates new form RegistraUsuario
      */
+    static Comunidad comunidad = new Comunidad();
     public RegistraUsuario(boolean x) {
         initComponents();
         ToolTip();
         cambiolbl(x);
         this.typeofuser = x;
-        System.out.println(this.typeofuser);
     }
-
+   
     private RegistraUsuario() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -45,6 +47,7 @@ public class RegistraUsuario extends javax.swing.JFrame {
         jprepContrasena.setToolTipText("repita la contraseña exactamente igual como la ha escrito anteriormente");
         txfcodigo.setToolTipText("ingrese el codigo de acceso asignado por la Municipalidad");
     }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -221,21 +224,22 @@ public class RegistraUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
        
         if (this.typeofuser==true) {
-            Comunidad admin = new Comunidad();
+            
             char[] arraycontra = jpContrasena.getPassword();
             String contrasena = new String(arraycontra);
             char[] arrayrepcontra = jprepContrasena.getPassword();
             String repcontrasena = new String(arrayrepcontra);
-            JOptionPane.showMessageDialog(null, admin.agregarAdministrador(txfNombre.getText(), tfDPI.getText(), contrasena, repcontrasena, txfcomodin.getText(), txfcodigo.getText()));
+            JOptionPane.showMessageDialog(null, comunidad.agregarAdministrador(txfNombre.getText(), tfDPI.getText(), contrasena, repcontrasena, txfcomodin.getText(), txfcodigo.getText()));
             regresar();
+            
         }
         if (this.typeofuser==false) {
-            Comunidad trabajador = new Comunidad();
             char[] arraycontra = jpContrasena.getPassword();
             String contrasena = new String(arraycontra);
             char[] arrayrepcontra = jprepContrasena.getPassword();
             String repcontrasena = new String(arrayrepcontra);
-            JOptionPane.showMessageDialog(null, trabajador.agregarUsuario(txfNombre.getText(), tfDPI.getText(), contrasena, repcontrasena, txfcomodin.getText(), txfcodigo.getText()));
+            JOptionPane.showMessageDialog(null, comunidad.agregarUsuario(txfNombre.getText(), tfDPI.getText(), contrasena, repcontrasena, txfcomodin.getText(), txfcodigo.getText()));
+            
             regresar();
         }
     }//GEN-LAST:event_btnRegistrarActionPerformed
@@ -290,6 +294,7 @@ public class RegistraUsuario extends javax.swing.JFrame {
                 new RegistraUsuario().setVisible(true);
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -310,7 +315,5 @@ public class RegistraUsuario extends javax.swing.JFrame {
     private javax.swing.JTextField txfcomodin;
     // End of variables declaration//GEN-END:variables
 
-    private boolean type(char[] password) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 }
