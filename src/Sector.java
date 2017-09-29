@@ -2,23 +2,22 @@
 import javax.swing.JOptionPane;
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author JUMPSTONIK
+ * 29 de septiembre de 2017
+ * @author josue David Lopez Florian 17081
+ * @author Juan Rodolfo Alonzo Molina 15470
  */
 public class Sector extends javax.swing.JFrame {
     private int indexUser;
     private int sector;
     /**
-     * Creates new form Sector
+     * en este contructor se usa para obtener el numero del sector y el index del usuario el cual se le quiere asignar
+     * su sector y horas.
+     * @param index
+     * @param numsector 
      */
     public Sector(int index, int numsector) {
         initComponents();
+        //esto solo sirve para centrar el jFrame
         setLocationRelativeTo(null);
         this.indexUser = index;
         this.sector = numsector;
@@ -95,13 +94,16 @@ public class Sector extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAsignarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarseActionPerformed
-        // TODO add your handling code here:
+        // se crea el objeto para obtener sus metodos
         Comunidad comunidad = new Comunidad();
+        // se toma el valor seleccionado
         String intervalo = (String) jcbHoras.getSelectedItem();
+        //se verifica si ha seleccionado algo que no sea la primer opcion
         if (!(intervalo.equals("Seleccione hora..."))) {
- 
+            //aqui se crea la asignacion y se obtiene el mensaje de si se ha logrado o no asignar su sector y horas
             JOptionPane.showMessageDialog(null, ( (RegistroUsuario) comunidad.getTrabajadores().get(this.indexUser)).setHorarioYsector(intervalo, "sector "+this.sector));
         } else {
+            //mensaje en caso que no lo haya hecho
             JOptionPane.showMessageDialog(null, "debe seleccionar su horario en este sector");
         }
         this.setVisible(false);

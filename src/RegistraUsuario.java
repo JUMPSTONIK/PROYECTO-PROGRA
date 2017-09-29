@@ -3,9 +3,9 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * 29 de septiembre de 2017
+ * @author josue David Lopez Florian 17081
+ * @author Juan Rodolfo Alonzo Molina 15470
  */
 
 
@@ -23,13 +23,19 @@ public class RegistraUsuario extends javax.swing.JFrame {
     public RegistraUsuario(boolean x) {
         initComponents();
         ToolTip();
-        cambiolbl(x);
         this.typeofuser = x;
+        cambiolbl(this.typeofuser);    
     }
-   
-    private RegistraUsuario() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    public RegistraUsuario() {
+        initComponents();
+        ToolTip();
+        cambiolbl(this.typeofuser);    
     }
+    /**
+     * este metodo cambia lo que dice la etiqueta comodin, para decir trabajo para vendedores o trabajadores y puesto para admins
+     * @param estado boolean que es false para trabajador o tru para admins
+     */
     private void cambiolbl(boolean estado){
         if (estado==false) {
             lbcomodin.setText("Trabajo");
@@ -40,6 +46,10 @@ public class RegistraUsuario extends javax.swing.JFrame {
            txfcomodin.setToolTipText("debe ingresar el puesto que ocupa en la municipalidad ejemplo: policia, secretario, etc. ");
         }
     } 
+    /**
+     * este metodo es usado nada mas para agregar los tooltips(etiquetas emrgentes) para
+     * decirle al usario como puede meter su informacion
+     */
     private void ToolTip(){
         txfNombre.setToolTipText("debe ingresar minimo 1 nombre y apellido");
         tfDPI.setToolTipText("recuerde ingresar todos los digitos de su DPI juntos y no agregar ningun caracter que no sea numero");
@@ -256,6 +266,9 @@ public class RegistraUsuario extends javax.swing.JFrame {
     private void txfcomodinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfcomodinActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txfcomodinActionPerformed
+    /**
+     * metodo usado para regresar a la ventana del Main
+     */
     public void regresar(){
         Main main = new Main();
         main.setVisible(true);

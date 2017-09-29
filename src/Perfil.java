@@ -2,9 +2,9 @@
 import java.util.ArrayList;
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * 29 de septiembre de 2017
+ * @author josue David Lopez Florian 17081
+ * @author Juan Rodolfo Alonzo Molina 15470
  */
 
 
@@ -28,6 +28,8 @@ public class Perfil extends javax.swing.JFrame {
     public Perfil(ArrayList <Personas> usuario, boolean typeUser, int indexUser) {
         initComponents();
         setLocationRelativeTo(null);
+        //aqui en esta parte solo se asigna los datos del perfil del usuario que ha ingresado y se
+        // inicializa las variables que se necesitan para trabajar
         lblID.setText(usuario.get(indexUser).getID());
         this.userID = usuario.get(indexUser).getID();
         lblUsuario.setText(usuario.get(indexUser).getNombre());
@@ -35,6 +37,8 @@ public class Perfil extends javax.swing.JFrame {
         lblDescripcion.setText(usuario.get(indexUser).getDescripcion());
         this.userDescripcion = usuario.get(indexUser).getDescripcion();
         this.userIndex = indexUser;
+        this.usertypeUser = typeUser;
+        //aqui se hace la diferenciacion de que dira cada boton dependiendo el usuario
         if (typeUser == false) {
             btnAsignaOVerUser.setText("ASIGNAR SECTOR Y HORARIO");
             btnAsignarOVerMultas.setText("VER MULTAS");
@@ -48,6 +52,7 @@ public class Perfil extends javax.swing.JFrame {
         
         
     }
+    
     public Perfil() {
         initComponents();
         setLocationRelativeTo(null);
@@ -219,10 +224,12 @@ public class Perfil extends javax.swing.JFrame {
     private void btnAsignaOVerUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignaOVerUserActionPerformed
         // TODO add your handling code here:
         Mapa mapa = new Mapa(this.userIndex);
+        //meter aqui lo que quieras llamar para los vendedores o trabajadores
         if (this.usertypeUser == false) {
             mapa.setVisible(true);
             this.setVisible(false);
         }
+        //meter el codigo aqui de lo que quieras que haga el boton de los administradores
         if (this.usertypeUser == true) {
             
         }
@@ -230,22 +237,26 @@ public class Perfil extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAsignaOVerUserActionPerformed
 
     private void btnAsignarOVerMultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarOVerMultasActionPerformed
-        // TODO add your handling code here:
+        // 
+        //meter aqui lo que quieras llamar para los vendedores o trabajadores
         if (this.usertypeUser == false) {
             //.setVisible(true);
             
         }
+        //meter el codigo aqui de lo que quieras que haga el boton de los administradores
         if (this.usertypeUser == true) {
             
         }
     }//GEN-LAST:event_btnAsignarOVerMultasActionPerformed
 
     private void btnPagarOEditarUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarOEditarUserActionPerformed
-        // TODO add your handling code here:
+      
+        //meter aqui lo que quieras llamar para los vendedores o trabajadores
         if (this.usertypeUser == false) {
             //.setVisible(true);
             this.setVisible(false);
         }
+        //meter el codigo aqui de lo que quieras que haga el boton de los administradores
         if (this.usertypeUser == true) {
             
         }

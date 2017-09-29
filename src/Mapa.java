@@ -2,14 +2,9 @@
 import javax.swing.JOptionPane;
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author JUMPSTONIK
+ * 29 de septiembre de 2017
+ * @author josue David Lopez Florian 17081
+ * @author Juan Rodolfo Alonzo Molina 15470
  */
 public class Mapa extends javax.swing.JFrame {
     private static int IndexUser;
@@ -65,7 +60,7 @@ public class Mapa extends javax.swing.JFrame {
         jTextField15 = new javax.swing.JTextField();
         btnregresar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnHorario = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -188,11 +183,11 @@ public class Mapa extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Presione sobre los botones que dicen Sector# y podra asignarse a su horario y sector");
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jButton1.setText("HORARIO");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnHorario.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        btnHorario.setText("HORARIO");
+        btnHorario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnHorarioActionPerformed(evt);
             }
         });
 
@@ -265,7 +260,7 @@ public class Mapa extends javax.swing.JFrame {
                         .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnregresar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)))
@@ -286,7 +281,7 @@ public class Mapa extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnregresar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -362,6 +357,7 @@ public class Mapa extends javax.swing.JFrame {
         btnSector5.getAccessibleContext().setAccessibleName("btnSector5");
         btnSector12.getAccessibleContext().setAccessibleName("btnSector12");
         btnregresar.getAccessibleContext().setAccessibleName("btnregresar");
+        btnHorario.getAccessibleContext().setAccessibleName("btnHorario");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -449,10 +445,11 @@ public class Mapa extends javax.swing.JFrame {
         sector.setVisible(true);
     }//GEN-LAST:event_btnSector11ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHorarioActionPerformed
         // TODO add your handling code here:
         Comunidad comunidad = new Comunidad();
         String SectorYHorario = "";
+        // esta parte recorre el array para sacar toda la informacion de horarios y sectores existentes
         for (int i = 0; i < ((RegistroUsuario) comunidad.getTrabajadores().get(this.IndexUser)).getHorario().length; i++) {
             if (((RegistroUsuario) comunidad.getTrabajadores().get(this.IndexUser)).getHorario()[i] != null) {
                 SectorYHorario += ((RegistroUsuario) comunidad.getTrabajadores().get(this.IndexUser)).getHorario()[i] + " en " +((RegistroUsuario) comunidad.getTrabajadores().get(this.IndexUser)).getSector()[i] + "\n";   
@@ -461,8 +458,9 @@ public class Mapa extends javax.swing.JFrame {
                 
         
         }
+        //aqui esta el codigo para crear una ventana emergente
         JOptionPane.showMessageDialog(null, SectorYHorario);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnHorarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -500,6 +498,7 @@ public class Mapa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnHorario;
     private javax.swing.JButton btnSector1;
     private javax.swing.JButton btnSector10;
     private javax.swing.JButton btnSector11;
@@ -513,7 +512,6 @@ public class Mapa extends javax.swing.JFrame {
     private javax.swing.JButton btnSector8;
     private javax.swing.JButton btnSector9;
     private javax.swing.JButton btnregresar;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
