@@ -155,7 +155,7 @@ public class Main extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "debe llenar ambas cansillas. la primera con su ID y la segunda con su contraseña");
         }
         else{   
-            System.out.println(555);  
+
             if (comunidad.log_in(comunidad.QueUsuario(tfIDUser.getText()), tfIDUser.getText(), contra) == true) {
                 Perfil perfil = new Perfil(comunidad.QueUsuario(tfIDUser.getText()),comunidad.getTipoUsuario(), comunidad.getIndexUser());
                 perfil.setVisible(true);

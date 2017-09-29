@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -62,6 +65,9 @@ public class Mapa extends javax.swing.JFrame {
         jTextField15 = new javax.swing.JTextField();
         btnregresar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         jButton3.setText("jButton3");
 
@@ -182,6 +188,18 @@ public class Mapa extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Presione sobre los botones que dicen Sector# y podra asignarse a su horario y sector");
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jButton1.setText("HORARIO");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Para ver horario y");
+
+        jLabel3.setText("sector precione aqui");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -224,12 +242,12 @@ public class Mapa extends javax.swing.JFrame {
                                 .addComponent(btnSector12, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnSector3, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnSector3, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
+                                    .addComponent(jTextField8))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -245,8 +263,12 @@ public class Mapa extends javax.swing.JFrame {
                                     .addComponent(txf9ACalle))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(btnregresar))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnregresar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -258,7 +280,15 @@ public class Mapa extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnregresar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -314,8 +344,7 @@ public class Mapa extends javax.swing.JFrame {
                                         .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(btnSector6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(2, 2, 2))))
-                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnregresar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -343,6 +372,8 @@ public class Mapa extends javax.swing.JFrame {
 
     private void btnSector5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSector5ActionPerformed
         // TODO add your handling code here:
+        Sector sector = new Sector(this.IndexUser, 5);
+        sector.setVisible(true);
     }//GEN-LAST:event_btnSector5ActionPerformed
 
     private void btnregresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregresarActionPerformed
@@ -354,6 +385,8 @@ public class Mapa extends javax.swing.JFrame {
 
     private void btnSector12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSector12ActionPerformed
         // TODO add your handling code here:
+        Sector sector = new Sector(this.IndexUser, 12);
+        sector.setVisible(true);
     }//GEN-LAST:event_btnSector12ActionPerformed
 
     private void btnSector1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSector1ActionPerformed
@@ -364,39 +397,72 @@ public class Mapa extends javax.swing.JFrame {
 
     private void btnSector2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSector2ActionPerformed
         // TODO add your handling code here:
+        Sector sector = new Sector(this.IndexUser, 2);
+        sector.setVisible(true);
     }//GEN-LAST:event_btnSector2ActionPerformed
 
     private void btnSector3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSector3ActionPerformed
         // TODO add your handling code here:
+        Sector sector = new Sector(this.IndexUser, 3);
+        sector.setVisible(true);
     }//GEN-LAST:event_btnSector3ActionPerformed
 
     private void btnSector4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSector4ActionPerformed
         // TODO add your handling code here:
+        Sector sector = new Sector(this.IndexUser, 4);
+        sector.setVisible(true);
     }//GEN-LAST:event_btnSector4ActionPerformed
 
     private void btnSector6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSector6ActionPerformed
         // TODO add your handling code here:
+        Sector sector = new Sector(this.IndexUser, 6);
+        sector.setVisible(true);
     }//GEN-LAST:event_btnSector6ActionPerformed
 
     private void btnSector7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSector7ActionPerformed
         // TODO add your handling code here:
+        Sector sector = new Sector(this.IndexUser, 7);
+        sector.setVisible(true);
     }//GEN-LAST:event_btnSector7ActionPerformed
 
     private void btnSector8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSector8ActionPerformed
         // TODO add your handling code here:
+        Sector sector = new Sector(this.IndexUser, 8);
+        sector.setVisible(true);
     }//GEN-LAST:event_btnSector8ActionPerformed
 
     private void btnSector9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSector9ActionPerformed
         // TODO add your handling code here:
+        Sector sector = new Sector(this.IndexUser, 9);
+        sector.setVisible(true);
     }//GEN-LAST:event_btnSector9ActionPerformed
 
     private void btnSector10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSector10ActionPerformed
         // TODO add your handling code here:
+        Sector sector = new Sector(this.IndexUser, 10);
+        sector.setVisible(true);
     }//GEN-LAST:event_btnSector10ActionPerformed
 
     private void btnSector11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSector11ActionPerformed
         // TODO add your handling code here:
+        Sector sector = new Sector(this.IndexUser, 11);
+        sector.setVisible(true);
     }//GEN-LAST:event_btnSector11ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Comunidad comunidad = new Comunidad();
+        String SectorYHorario = "";
+        for (int i = 0; i < ((RegistroUsuario) comunidad.getTrabajadores().get(this.IndexUser)).getHorario().length; i++) {
+            if (((RegistroUsuario) comunidad.getTrabajadores().get(this.IndexUser)).getHorario()[i] != null) {
+                SectorYHorario += ((RegistroUsuario) comunidad.getTrabajadores().get(this.IndexUser)).getHorario()[i] + " en " +((RegistroUsuario) comunidad.getTrabajadores().get(this.IndexUser)).getSector()[i] + "\n";   
+            }
+       
+                
+        
+        }
+        JOptionPane.showMessageDialog(null, SectorYHorario);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -447,8 +513,11 @@ public class Mapa extends javax.swing.JFrame {
     private javax.swing.JButton btnSector8;
     private javax.swing.JButton btnSector9;
     private javax.swing.JButton btnregresar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;

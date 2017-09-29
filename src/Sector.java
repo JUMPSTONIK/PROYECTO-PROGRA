@@ -37,18 +37,27 @@ public class Sector extends javax.swing.JFrame {
     private void initComponents() {
 
         jcbHoras = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        btnAsignarse = new javax.swing.JButton();
+        btnRegresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jcbHoras.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jcbHoras.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione hora...", "8:00am - 10:00am", "10:00am - 12:00am", "12:00pm - 2:00pm", "2:00pm - 4:00pm", "4:00pm - 6:00pm", "6:00pm - 8:00pm", "8:00pm - 10:00pm" }));
 
-        jButton1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
-        jButton1.setText("Asignarse");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAsignarse.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
+        btnAsignarse.setText("Asignarse");
+        btnAsignarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAsignarseActionPerformed(evt);
+            }
+        });
+
+        btnRegresar.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
+        btnRegresar.setText("Regresar");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarActionPerformed(evt);
             }
         });
 
@@ -56,42 +65,53 @@ public class Sector extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jcbHoras, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jcbHoras, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addComponent(btnAsignarse, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
-                    .addComponent(jcbHoras))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnAsignarse, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcbHoras, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
+                .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jcbHoras.getAccessibleContext().setAccessibleName("jcbHoras");
+        btnAsignarse.getAccessibleContext().setAccessibleName("btnAsignarse");
+        btnRegresar.getAccessibleContext().setAccessibleName("btnRegresar");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAsignarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarseActionPerformed
         // TODO add your handling code here:
         Comunidad comunidad = new Comunidad();
         String intervalo = (String) jcbHoras.getSelectedItem();
         if (!(intervalo.equals("Seleccione hora..."))) {
-            System.out.println(55555);
-            ((RegistroUsuario) comunidad.getTrabajadores().get(this.indexUser)).setSector("Sector " + this.sector);
-            JOptionPane.showMessageDialog(null, ( (RegistroUsuario) comunidad.getTrabajadores().get(this.indexUser)).setHorario(intervalo));
+ 
+            JOptionPane.showMessageDialog(null, ( (RegistroUsuario) comunidad.getTrabajadores().get(this.indexUser)).setHorarioYsector(intervalo, "sector "+this.sector));
         } else {
             JOptionPane.showMessageDialog(null, "debe seleccionar su horario en este sector");
         }
+        this.setVisible(false);
         
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnAsignarseActionPerformed
+
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+    }//GEN-LAST:event_btnRegresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -129,7 +149,8 @@ public class Sector extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnAsignarse;
+    private javax.swing.JButton btnRegresar;
     private javax.swing.JComboBox<String> jcbHoras;
     // End of variables declaration//GEN-END:variables
 }

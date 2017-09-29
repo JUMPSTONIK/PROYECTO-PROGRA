@@ -114,6 +114,12 @@ public class Perfil extends javax.swing.JFrame {
             }
         });
 
+        btnPagarOEditarUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPagarOEditarUserActionPerformed(evt);
+            }
+        });
+
         btnCerrarSesion.setText("Cerrar Sesion");
         btnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -213,13 +219,37 @@ public class Perfil extends javax.swing.JFrame {
     private void btnAsignaOVerUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignaOVerUserActionPerformed
         // TODO add your handling code here:
         Mapa mapa = new Mapa(this.userIndex);
-        mapa.setVisible(true);
-        this.setVisible(false);
+        if (this.usertypeUser == false) {
+            mapa.setVisible(true);
+            this.setVisible(false);
+        }
+        if (this.usertypeUser == true) {
+            
+        }
+        
     }//GEN-LAST:event_btnAsignaOVerUserActionPerformed
 
     private void btnAsignarOVerMultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarOVerMultasActionPerformed
         // TODO add your handling code here:
+        if (this.usertypeUser == false) {
+            //.setVisible(true);
+            
+        }
+        if (this.usertypeUser == true) {
+            
+        }
     }//GEN-LAST:event_btnAsignarOVerMultasActionPerformed
+
+    private void btnPagarOEditarUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarOEditarUserActionPerformed
+        // TODO add your handling code here:
+        if (this.usertypeUser == false) {
+            //.setVisible(true);
+            this.setVisible(false);
+        }
+        if (this.usertypeUser == true) {
+            
+        }
+    }//GEN-LAST:event_btnPagarOEditarUserActionPerformed
 
     /**
      * @param args the command line arguments

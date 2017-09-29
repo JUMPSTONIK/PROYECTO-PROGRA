@@ -19,7 +19,7 @@ public class RegistraUsuario extends javax.swing.JFrame {
     /**
      * Creates new form RegistraUsuario
      */
-    static Comunidad comunidad = new Comunidad();
+    Comunidad comunidad = new Comunidad();
     public RegistraUsuario(boolean x) {
         initComponents();
         ToolTip();

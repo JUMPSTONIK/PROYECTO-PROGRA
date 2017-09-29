@@ -5,8 +5,8 @@
 //21/09/2017
 
 public class RegistroUsuario extends Personas{
-	protected String[] horario = new String[5];
-        private String[] sector = new String[5];
+	protected  String[] horario = new String[5];
+        private  String[] sector = new String[5];
         
 	public RegistroUsuario(String nombre, String dpi, String contrasena, String trabajo, String id){
 		super(nombre, dpi,contrasena, id, trabajo);
@@ -15,50 +15,49 @@ public class RegistroUsuario extends Personas{
 
 	
 
-	public String setHorario(String horas){
+	public String setHorarioYsector(String horas, String sectores){
             String mensaje ="";
-            for (int j = 0; j < this.horario.length -1; j++) {
-                
-            if (this.horario[j] == null) {
-                if (this.horario.length == 0) {
+            int cont =0;
+            boolean acceso = false;
+            
+                if (this.horario[0] == null) {
                     this.horario[0] = horas;
+                    this.sector[0] = sectores;
                     mensaje = "se ha asignado exitosamente";
+
                 }
                 else{
-                    for (int i = 0; i < this.horario.length; i++) {
-                        if (this.horario[i].equals(horas)) {
-                            mensaje = "no se puede asignar 2 veces en las mismas horas en uno o varios sectores. Elija uno diferente";
+                    
+                    for (int i = 4; i > 0; i--) {
+                        if (this.horario[i] == null) {
+                           cont = i;
+                           acceso = true; 
                         }
                         else{
-                            this.horario[i] = horas;
-                            mensaje = "se ha asignado exitosamente";
+                            for (int j = 0; j < i+1; j++) {
+  
+                            if (this.horario[j].equals(horas)) {
+                                
+                                mensaje = "no se puede asignar 2 veces en las mismas horas en uno o varios sectores. Elija uno diferente\n";
+                                acceso = false;
+                                }
+                            }    
                         }
                     }
+                    if (acceso == true && cont>=0) {
+                        
+                        this.horario[cont] = horas;
+                        this.sector[cont] = sectores;
+                        mensaje = "se ha asignado exitosamente";
+                    }
                 } 
+                if (mensaje.equals("")) {
+                mensaje ="no puede tener mas de 5 sectores asignados a su horario";
             }
-            else{
-                mensaje = "ya esta lleno su horario de asignaciones";
-            }
-            }
+            
             return mensaje;
 	}
         
-        public void setSector(String sectores){
-            if (this.sector.length <5) {
-                if (this.sector.length == 0) {
-                    this.sector[0] = sectores;
-                }
-                else{
-                    for (int i = 0; i < this.sector.length; i++) {
-                        if (this.sector[i].equals(sectores)) {
-                        }
-                        else{
-                            this.sector[i] = sectores;
-                        }
-                    }
-                } 
-            }
-	}
         
         public String[] getSector(){
 		return this.sector;

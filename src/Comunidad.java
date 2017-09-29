@@ -10,7 +10,7 @@ public class Comunidad{
 	private static ArrayList <Personas> usuarios = new ArrayList<Personas>();
         private static ArrayList <String> codigosAdm;
         private static ArrayList <String> codigosUsua;
-        private static String idAdmin;
+        private String idAdmin;
         private String idUser;
         private static boolean typeuser;
         private static int indexUser;
@@ -23,6 +23,8 @@ public class Comunidad{
                 generarIDUser();
                 codigosUsua.add("BBBBB");
                 codigosAdm.add("AAAAA");
+                char c = (char)83;
+                System.out.println(c);
                      
 	}
         /**
@@ -158,7 +160,7 @@ public class Comunidad{
             
             boolean conectar = false;
             for (int i = 0; i < usuario.size() ; i++) {
-                System.out.println(55555);
+                
                 
                 if (usuario.get(i).getID().equals(ID) && usuario.get(i).getContrasena().equals(contrasena)) {
                     this.indexUser = i;
