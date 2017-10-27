@@ -1,4 +1,7 @@
 
+import java.util.ArrayList;
+
+
 //Universidad del Valle de Guatemala
 //15470
 //Juan Rodolfo Alonzo Molina
@@ -8,9 +11,11 @@
  * @author josue David Lopez Florian 17081
  * @author Juan Rodolfo Alonzo Molina 15470
  */
+
 public class RegistroUsuario extends Personas{
 	protected  String[] horario = new String[5];
         private  String[] sector = new String[5];
+        private static ArrayList <String> multas = new ArrayList<String>();
         
 	public RegistroUsuario(String nombre, String dpi, String contrasena, String trabajo, String id){
 		super(nombre, dpi,contrasena, id, trabajo);
@@ -86,4 +91,18 @@ public class RegistroUsuario extends Personas{
 		return this.horario;
 	}
         
+        public String getMultas(){
+            String lasMultas ="";
+            if (this.multas.isEmpty()==true) {
+                lasMultas = "no tiene multas";
+            }
+            else{
+                for (int i = 0; i < this.multas.size(); i++) {
+                    lasMultas += this.multas.get(i) + "\n";
+                }
+            }
+            
+            return lasMultas;
+            
+        }
 }

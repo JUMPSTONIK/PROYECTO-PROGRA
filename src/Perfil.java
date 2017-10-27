@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /*
  * 29 de septiembre de 2017
@@ -237,11 +238,14 @@ public class Perfil extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAsignaOVerUserActionPerformed
 
     private void btnAsignarOVerMultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarOVerMultasActionPerformed
-        // 
+
         //meter aqui lo que quieras llamar para los vendedores o trabajadores
         if (this.usertypeUser == false) {
-            //.setVisible(true);
-            
+            Comunidad comunidad = new Comunidad();
+            //JOptionPane.showMessageDialog(null, "fffffff");
+            String multas = ((RegistroUsuario) comunidad.getTrabajadores().get(this.userIndex)).getMultas();
+            //JOptionPane.showMessageDialog(null, multas);
+            System.out.println(((RegistroUsuario) comunidad.getTrabajadores().get(this.userIndex)).getMultas());
         }
         //meter el codigo aqui de lo que quieras que haga el boton de los administradores
         if (this.usertypeUser == true) {
@@ -254,7 +258,7 @@ public class Perfil extends javax.swing.JFrame {
         //meter aqui lo que quieras llamar para los vendedores o trabajadores
         if (this.usertypeUser == false) {
             //.setVisible(true);
-            this.setVisible(false);
+            //this.setVisible(false);
         }
         //meter el codigo aqui de lo que quieras que haga el boton de los administradores
         if (this.usertypeUser == true) {

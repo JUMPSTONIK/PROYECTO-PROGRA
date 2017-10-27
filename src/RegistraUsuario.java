@@ -269,7 +269,7 @@ public class RegistraUsuario extends javax.swing.JFrame {
     /**
      * metodo usado para regresar a la ventana del Main
      */
-    public void regresar(){
+    private void regresar(){
         Main main = new Main();
         main.setVisible(true);
         this.setVisible(false);

@@ -27,8 +27,8 @@ public class Comunidad{
                 generarIDUser();
                 codigosUsua.add("BBBBB");
                 codigosAdm.add("AAAAA");
-                String var = generarCodigo();
-                System.out.println(var);
+                //String var = generarCodigo();
+                //System.out.println(var);
 	}
         /**
          * este es el metodo encargada de guardar un objeto tipo persona a administradores, pero antes verifica si es un administrador valido o no

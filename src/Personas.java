@@ -13,7 +13,7 @@ public abstract class Personas{
 	
 	protected String nombre;
 	protected String dpi;
-	private String contrasena;
+	protected String contrasena;
 	protected String id;
         protected String descripcion;
 	
