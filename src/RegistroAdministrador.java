@@ -15,36 +15,36 @@ public class RegistroAdministrador extends javax.swing.JFrame {
      * Creates new form RegistroAdministrador
      */
     Comunidad comunidad = new Comunidad();
-    public RegistroAdministrador(boolean x) {
-        initComponents();
-        ToolTip();
-        this.typeofuser = x;
-        cambiolbl(this.typeofuser);
-    }
-    public RegistroAdministrador() {
-        initComponents();
-        ToolTip();
-        cambiolbl(this.typeofuser); 
-    }
+    //public RegistroAdministrador(boolean x) {
+    //    initComponents();
+    //    ToolTip();
+    //    this.typeofuser = x;
+    //    cambiolbl(this.typeofuser);
+    //}
+    //public RegistroAdministrador() {
+    //    initComponents();
+    //    ToolTip();
+    //    cambiolbl(this.typeofuser); 
+    //}
     
-    private void cambiolbl(boolean estado){
-        if (estado==false) {
-            lbcomodin.setText("Trabajo");
-            txfcomodin.setToolTipText("debe ingresar a que se dedica o de que trabaja. ejemplo: vendedor, artiista, circense, etc..");
-        }
-        if (estado==true) {
-           lbcomodin.setText("puesto:");
-           txfcomodin.setToolTipText("debe ingresar el puesto que ocupa en la municipalidad ejemplo: policia, secretario, etc. ");
-        }
-    }
+    //private void cambiolbl(boolean estado){
+    //    if (estado==false) {
+    //        lbcomodin.setText("Trabajo");
+    //        txfcomodin.setToolTipText("debe ingresar a que se dedica o de que trabaja. ejemplo: vendedor, artiista, circense, etc..");
+    //    }
+    //    if (estado==true) {
+    //       lbcomodin.setText("puesto:");
+    //       txfcomodin.setToolTipText("debe ingresar el puesto que ocupa en la municipalidad ejemplo: policia, secretario, etc. ");
+    //    }
+    //}
     
-    private void ToolTip(){
-        txfNombre.setToolTipText("debe ingresar minimo 1 nombre y apellido");
-        tfDPI.setToolTipText("recuerde ingresar todos los digitos de su DPI juntos y no agregar ningun caracter que no sea numero");
-        jpContrasena.setToolTipText("debe tener minimo 8 caracteres");
-        jprepContrasena.setToolTipText("repita la contraseña exactamente igual como la ha escrito anteriormente");
-        txfcodigo.setToolTipText("ingrese el codigo de acceso asignado por la Municipalidad");
-    }
+    //private void ToolTip(){
+    //    txfNombre.setToolTipText("debe ingresar minimo 1 nombre y apellido");
+    //    tfDPI.setToolTipText("recuerde ingresar todos los digitos de su DPI juntos y no agregar ningun caracter que no sea numero");
+    //    jpContrasena.setToolTipText("debe tener minimo 8 caracteres");
+    //    jprepContrasena.setToolTipText("repita la contraseña exactamente igual como la ha escrito anteriormente");
+    //    txfcodigo.setToolTipText("ingrese el codigo de acceso asignado por la Municipalidad");
+    //}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -70,6 +70,11 @@ public class RegistroAdministrador extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnRegistrar.setText("Registrar");
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
 
         lbEmail.setText("Email:");
 
@@ -148,6 +153,29 @@ public class RegistroAdministrador extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+           // TODO add your handling code here:
+            //if (this.typeofuser==true) {
+            
+            //char[] arraycontra = jpContrasena.getPassword();
+            //String contrasena = new String(arraycontra);
+            //char[] arrayrepcontra = jprepContrasena.getPassword();
+            //String repcontrasena = new String(arrayrepcontra);
+            //JOptionPane.showMessageDialog(null, comunidad.agregarAdministrador(txfNombre.getText(), tfDPI.getText(), contrasena, repcontrasena, txfcomodin.getText(), txfcodigo.getText()));
+            //regresar();
+            
+        //}
+        //if (this.typeofuser==false) {
+        //    char[] arraycontra = jpContrasena.getPassword();
+        //    String contrasena = new String(arraycontra);
+        //    char[] arrayrepcontra = jprepContrasena.getPassword();
+        //    String repcontrasena = new String(arrayrepcontra);
+        //    JOptionPane.showMessageDialog(null, comunidad.agregarUsuario(txfNombre.getText(), tfDPI.getText(), contrasena, repcontrasena, txfcomodin.getText(), txfcodigo.getText()));
+            
+        //    regresar();
+        //}
+    }//GEN-LAST:event_btnRegistrarActionPerformed
 
     /**
      * @param args the command line arguments

@@ -233,6 +233,8 @@ public class Perfil extends javax.swing.JFrame {
         //meter el codigo aqui de lo que quieras que haga el boton de los administradores
         if (this.usertypeUser == true) {
             
+            this.setVisible(false);
+            
         }
         
     }//GEN-LAST:event_btnAsignaOVerUserActionPerformed
@@ -249,6 +251,9 @@ public class Perfil extends javax.swing.JFrame {
         }
         //meter el codigo aqui de lo que quieras que haga el boton de los administradores
         if (this.usertypeUser == true) {
+            AsignarMulta multa = new AsignarMulta();
+            multa.setVisible(true);
+            this.setVisible(false);
             
         }
     }//GEN-LAST:event_btnAsignarOVerMultasActionPerformed
@@ -262,6 +267,9 @@ public class Perfil extends javax.swing.JFrame {
         }
         //meter el codigo aqui de lo que quieras que haga el boton de los administradores
         if (this.usertypeUser == true) {
+            CambioDataUser cdata = new CambioDataUser();
+            cdata.setVisible(true);
+            this.setVisible(false);
             
         }
     }//GEN-LAST:event_btnPagarOEditarUserActionPerformed

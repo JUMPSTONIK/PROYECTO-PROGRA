@@ -29,7 +29,7 @@ public class RegistroUsuario extends Personas{
          * @return regresa un mensaje diciendo si se ha o no logrado la asignacion del sector y su horario.
          */
 	public String setHorarioYsector(String horas, String sectores){
-            String mensaje ="";
+            String mensaje =""; 
             int cont =0;
             boolean acceso = false;
                 //en esta parte se comprueba si hay algo en la posicion 1 y si esta vacia, entonces agrega el sector y horas

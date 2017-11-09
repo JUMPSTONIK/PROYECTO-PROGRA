@@ -122,6 +122,12 @@ public class RegistraUsuario extends javax.swing.JFrame {
 
         lbcodigo.setText("codigo:");
 
+        txfcodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txfcodigoActionPerformed(evt);
+            }
+        });
+
         btnregresar.setText("<----Regresar");
         btnregresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -266,6 +272,10 @@ public class RegistraUsuario extends javax.swing.JFrame {
     private void txfcomodinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfcomodinActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txfcomodinActionPerformed
+
+    private void txfcodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfcodigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txfcodigoActionPerformed
     /**
      * metodo usado para regresar a la ventana del Main
      */

@@ -36,19 +36,15 @@ public class AsignarMulta extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("jButton1");
+        jButton1.setText("<---- Regresar");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jLabel1.setText("jLabel1");
+        jLabel1.setText("Motivo de la multa");
 
-        jTextField1.setText("jTextField1");
+        jLabel2.setText("Breve descripcion de lo ocurrido");
 
-        jLabel2.setText("jLabel2");
-
-        jTextField2.setText("jTextField2");
-
-        jButton2.setText("jButton2");
+        jButton2.setText("Multar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
