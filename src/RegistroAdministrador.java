@@ -3,19 +3,47 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package trty;
+import java.util.ArrayList;
 
 /**
  *
  * @author JOSUE FLORIAN
  */
 public class RegistroAdministrador extends javax.swing.JFrame {
-
+    private boolean typeofuser;
     /**
      * Creates new form RegistroAdministrador
      */
+    Comunidad comunidad = new Comunidad();
+    public RegistroAdministrador(boolean x) {
+        initComponents();
+        ToolTip();
+        this.typeofuser = x;
+        cambiolbl(this.typeofuser);
+    }
     public RegistroAdministrador() {
         initComponents();
+        ToolTip();
+        cambiolbl(this.typeofuser); 
+    }
+    
+    private void cambiolbl(boolean estado){
+        if (estado==false) {
+            lbcomodin.setText("Trabajo");
+            txfcomodin.setToolTipText("debe ingresar a que se dedica o de que trabaja. ejemplo: vendedor, artiista, circense, etc..");
+        }
+        if (estado==true) {
+           lbcomodin.setText("puesto:");
+           txfcomodin.setToolTipText("debe ingresar el puesto que ocupa en la municipalidad ejemplo: policia, secretario, etc. ");
+        }
+    }
+    
+    private void ToolTip(){
+        txfNombre.setToolTipText("debe ingresar minimo 1 nombre y apellido");
+        tfDPI.setToolTipText("recuerde ingresar todos los digitos de su DPI juntos y no agregar ningun caracter que no sea numero");
+        jpContrasena.setToolTipText("debe tener minimo 8 caracteres");
+        jprepContrasena.setToolTipText("repita la contraseña exactamente igual como la ha escrito anteriormente");
+        txfcodigo.setToolTipText("ingrese el codigo de acceso asignado por la Municipalidad");
     }
 
     /**
