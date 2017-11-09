@@ -232,9 +232,9 @@ public class Perfil extends javax.swing.JFrame {
         }
         //meter el codigo aqui de lo que quieras que haga el boton de los administradores
         if (this.usertypeUser == true) {
-            
+            ControlUsuarios controlU = new ControlUsuarios();
+            controlU.setVisible(true);
             this.setVisible(false);
-            
         }
         
     }//GEN-LAST:event_btnAsignaOVerUserActionPerformed

@@ -180,18 +180,8 @@
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\JUMPSTONIK\Documents\NetBeansProjects\proyectoprogramacion\nbproject\src\imagenes\logo.png"/>
-        </Property>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\JUMPSTONIK\Documents\NetBeansProjects\proyectoprogramacion\nbproject\src\imagenes\user.jpg"/>
-        </Property>
-      </Properties>
     </Component>
   </SubComponents>
 </Form>
