@@ -16,7 +16,7 @@ public class AsignarMulta extends javax.swing.JFrame {
     /**
      * Creates new form AsignarMulta
      */
-    public AsignarMulta(ArrayList <Personas> usuario, boolean typeUser, int indexUser) {
+    public AsignarMulta() {
         initComponents();
     }
     
@@ -135,14 +135,14 @@ public class AsignarMulta extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        lblID.setText(usuario.get(indexUser).getID());
-        this.userID = usuario.get(indexUser).getID();
-        lblUsuario.setText(usuario.get(indexUser).getNombre());
-        this.userNombre = usuario.get(indexUser).getNombre();
-        lblDescripcion.setText(usuario.get(indexUser).getDescripcion());
-        this.userDescripcion = usuario.get(indexUser).getDescripcion();
-        this.userIndex = indexUser;
-        this.usertypeUser = typeUser;
+      //  lblID.setText(usuario.get(indexUser).getID());
+        //this.userID = usuario.get(indexUser).getID();
+        //lblUsuario.setText(usuario.get(indexUser).getNombre());
+        //this.userNombre = usuario.get(indexUser).getNombre();
+        //lblDescripcion.setText(usuario.get(indexUser).getDescripcion());
+        //this.userDescripcion = usuario.get(indexUser).getDescripcion();
+        //this.userIndex = indexUser;
+        //this.usertypeUser = typeUser;
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
