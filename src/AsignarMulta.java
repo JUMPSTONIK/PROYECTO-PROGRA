@@ -64,6 +64,11 @@ public class AsignarMulta extends javax.swing.JFrame {
         jLabel2.setText("Breve descripcion de lo ocurrido");
 
         jButton2.setText("Multar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("ID del Usuario");
 
@@ -144,6 +149,11 @@ public class AsignarMulta extends javax.swing.JFrame {
         //this.userIndex = indexUser;
         //this.usertypeUser = typeUser;
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        regresar();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

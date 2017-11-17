@@ -137,6 +137,18 @@ public class RegistraUsuario extends javax.swing.JFrame {
 
         jLabel1.setText("Para saber como llenar las casillas, deje el cursor sobre el cambo a escribir");
 
+        jpContrasena.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jpContrasenaActionPerformed(evt);
+            }
+        });
+
+        jprepContrasena.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jprepContrasenaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -276,6 +288,14 @@ public class RegistraUsuario extends javax.swing.JFrame {
     private void txfcodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfcodigoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txfcodigoActionPerformed
+
+    private void jprepContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jprepContrasenaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jprepContrasenaActionPerformed
+
+    private void jpContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jpContrasenaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jpContrasenaActionPerformed
     /**
      * metodo usado para regresar a la ventana del Main
      */

@@ -235,8 +235,8 @@ public class Perfil extends javax.swing.JFrame {
         }
         //meter el codigo aqui de lo que quieras que haga el boton de los administradores
         if (this.usertypeUser == true) {
-            ControlUsuarios controlU = new ControlUsuarios();
-            controlU.setVisible(true);
+            CambioDataAdmin cambioDataAdmi = new CambioDataAdmin();
+            cambioDataAdmi.setVisible(true);
             this.setVisible(false);
         }
         
@@ -263,9 +263,9 @@ public class Perfil extends javax.swing.JFrame {
       
         //meter aqui lo que quieras llamar para los vendedores o trabajadores
         if (this.usertypeUser == false) {
-            
-            //.setVisible(true);
-            //this.setVisible(false);
+            PagarMultas ventana = new PagarMultas();
+            ventana.setVisible(true);
+            this.setVisible(false);
         }
         //meter el codigo aqui de lo que quieras que haga el boton de los administradores
         if (this.usertypeUser == true) {

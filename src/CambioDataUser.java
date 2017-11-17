@@ -23,7 +23,7 @@ public class CambioDataUser extends javax.swing.JFrame {
     private static int userIndex;
     
     Comunidad comunidad = new Comunidad();
-    public CambioDataUser(ArrayList <Personas> usuario, boolean typeUser, int indexUser) {
+    public CambioDataUser() {
         initComponents();
         ToolTip();
         setLocationRelativeTo(null);
@@ -39,7 +39,7 @@ public class CambioDataUser extends javax.swing.JFrame {
         txfNombre.setToolTipText("debe ingresar minimo 1 nombre y apellido");
         tfDPI.setToolTipText("recuerde ingresar todos los digitos de su DPI juntos y no agregar ningun caracter que no sea numero");
         jpContrasena.setToolTipText("debe tener minimo 8 caracteres");
-        jprepContrasena.setToolTipText("repita la contraseña exactamente igual como la ha escrito anteriormente");
+        //jprepContrasena.setToolTipText("repita la contraseña exactamente igual como la ha escrito anteriormente");
         txID.setToolTipText("Ingrese el ID del usuario del cual desea editar la información y luego presione el boton de escoger usuario");
     }
 
@@ -55,11 +55,9 @@ public class CambioDataUser extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         tfDPI = new javax.swing.JTextField();
         txfNombre = new javax.swing.JTextField();
         jpContrasena = new javax.swing.JTextField();
-        jprepContrasena = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         txID = new javax.swing.JTextField();
@@ -75,8 +73,6 @@ public class CambioDataUser extends javax.swing.JFrame {
         jLabel2.setText("Nombrey Apellido:");
 
         jLabel3.setText("Contraseña:");
-
-        jLabel4.setText("Repita Contraseña:");
 
         jButton1.setText("Escoger Usuario");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -132,12 +128,10 @@ public class CambioDataUser extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3)
-                                    .addComponent(jLabel4)
                                     .addComponent(jLabel6))
-                                .addGap(18, 18, 18)
+                                .addGap(52, 52, 52)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txfcomodin)
-                                    .addComponent(jprepContrasena)
                                     .addComponent(jpContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE))))
                         .addContainerGap(40, Short.MAX_VALUE))))
         );
@@ -166,15 +160,12 @@ public class CambioDataUser extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jpContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jprepContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txfcomodin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel6))
+                .addGap(13, 13, 13)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
 
@@ -188,28 +179,29 @@ public class CambioDataUser extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-    Comunidad comunidad = new Comunidad();
-    if (txID.equals("")) {
-         JOptionPane.showMessageDialog(null, "debe ingresar el ID del usuario");
-        }
-        else{   
+   // Comunidad comunidad = new Comunidad();
+    
+   // if (txID.equals("")) {
+    //     JOptionPane.showMessageDialog(null, "debe ingresar el ID del usuario");
+   //     }
+    //    else{   
 
-            if (comunidad.log_in2(comunidad.QueUsuario(txID.getText())) == true) {
-                Perfil perfil = new Perfil(comunidad.QueUsuario(txID.getText()),comunidad.getTipoUsuario(), comunidad.getIndexUser());
-                tfDPI.setText(usuario.get(indexUser).getDPI());
-                this.userID = usuario.get(indexUser).getDPI();
-                txfNombre.setText(usuario.get(indexUser).getNombre());
-                this.userNombre = usuario.get(indexUser).getNombre();
-                txfcomodin.setText(usuario.get(indexUser).getDescripcion());
-                this.userDescripcion = usuario.get(indexUser).getDescripcion();
-                jpContrasena.setText(usuario.get(indexUser).getContrasena());
-                this.UserContrasena(usuario.get(indexUser).getContrasena());
-                this.userIndex = indexUser;
-            }
-            else{
-                JOptionPane.showMessageDialog(null, "ID o contraseña incorrectos. Ingrese un ID o contraseña valida ya registrada");
-            }
-        }
+  //          if (comunidad.log_in2(comunidad.QueUsuario(txID.getText())) == true) {
+  //              Perfil perfil = new Perfil(comunidad.QueUsuario(txID.getText()),comunidad.getTipoUsuario(), comunidad.getIndexUser());
+ //               tfDPI.setText(usuario.get(indexUser).getDPI());
+ //               this.userID = usuario.get(indexUser).getDPI();
+ //               txfNombre.setText(usuario.get(indexUser).getNombre());
+ //               this.userNombre = usuario.get(indexUser).getNombre();
+ //               txfcomodin.setText(usuario.get(indexUser).getDescripcion());
+//                this.userDescripcion = usuario.get(indexUser).getDescripcion();
+//                jpContrasena.setText(usuario.get(indexUser).getContrasena());
+//                this.UserContrasena(usuario.get(indexUser).getContrasena());
+//                this.userIndex = indexUser;
+           // }
+         //   else{
+       //         JOptionPane.showMessageDialog(null, "ID incorrecto. Ingrese un ID ya registrado");
+     //       }
+   //     }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -259,11 +251,9 @@ public class CambioDataUser extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField jpContrasena;
-    private javax.swing.JTextField jprepContrasena;
     private javax.swing.JTextField tfDPI;
     private javax.swing.JTextField txID;
     private javax.swing.JTextField txfNombre;
