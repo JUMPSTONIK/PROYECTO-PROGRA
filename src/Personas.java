@@ -16,6 +16,7 @@ public abstract class Personas{
 	protected String contrasena;
 	protected String id;
         protected String descripcion;
+        protected String multa;
 	
 
 	public Personas(String nombre, String dpi, String contrasena, String id, String descripcion){
@@ -24,6 +25,7 @@ public abstract class Personas{
 		this.contrasena = contrasena;
 		this.id = id;
                 this.descripcion = descripcion;
+                this.multa = multa;
 	}
         /**
          * esta funcion devuelve el nombre de la persona
@@ -32,6 +34,10 @@ public abstract class Personas{
 	public String getNombre(){
 		return this.nombre;
 	}
+        
+        public void setNombre(){
+            this.nombre = nombre;
+        }
         /**
          * esta funcion devuelve el DPI de la persona
          * @return devuelve el DPI
@@ -39,6 +45,10 @@ public abstract class Personas{
 	public String getDPI(){
 		return this.dpi;
 	}
+        
+        public void setDPI(){
+            this.dpi = dpi;
+        }
         /**
          * esta funcion ddevuelve la funcion de la persona que se desea
          * @return devuleve la contraseña
@@ -46,12 +56,24 @@ public abstract class Personas{
 	public String getContrasena(){
 		return this.contrasena;
 	}
+        
+        public void setContrasena(){
+            this.contrasena = contrasena;
+        }
         /**
          * esta es la funcion la cual devuelve el ID de la persona que queremos
          * @return devuleve el ID
          */
         public String getID(){
                 return this.id;
+        }
+        
+        public String getMulta(){
+            return this.multa;
+        }
+        
+        public void setMulta(){
+            this.multa = multa;
         }
         /**
          * esta funcion devuleve la descripcion de la persona si es algun tipo de trabajador de la municipalidad o administrador

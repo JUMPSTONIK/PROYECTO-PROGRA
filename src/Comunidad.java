@@ -178,6 +178,20 @@ public class Comunidad{
             }
             return conectar;
         }
+        
+        public boolean log_in2(ArrayList<Personas> usuario, String ID){
+            
+            boolean conectar = false;
+            for(int i = 0; i < usuario.size() ; i++){
+                
+                
+                if (usuario.get(i).getID().equals(ID)){
+                    this.indexUser = i;
+                    conectar = true;
+                }
+            }
+            return conectar;
+        }
         /**
          * este metodo esta hecho para determinar automaticamente a travez del a ID de la persona
          * @param IDuser ID ingresado por la persona que se logeara
